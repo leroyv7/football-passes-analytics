@@ -236,32 +236,22 @@ server <- function(input, output) {
         )
       )
     ) +
-      
       geom_col(
         width = 0.7,
         fill = team_colours[input$team]
       ) +
-      
       scale_y_continuous(
         labels = percent_format()
       ) +
-      
       labs(
-        title = paste(
-          input$team,
-          "vertical pass distribution"
-        ),
+        title = paste(input$team, "vertical pass distribution"),
         subtitle = "2015/16 domestic league",
         x = NULL,
         y = "Share of passes"
       ) +
-      
       theme_minimal()
     
-    ggplotly(
-      p,
-      tooltip = "text"
-    )
+    ggplotly(p, tooltip = "text")
     
   })
   
@@ -295,32 +285,22 @@ server <- function(input, output) {
         )
       )
     ) +
-      
       geom_col(
         width = 0.7,
         fill = team_colours[input$team]
       ) +
-      
       scale_y_continuous(
         labels = percent_format()
       ) +
-      
       labs(
-        title = paste(
-          input$team,
-          "progressive passing structure"
-        ),
+        title = paste(input$team, "progressive passing structure"),
         subtitle = "2015/16 domestic league",
         x = NULL,
         y = "Share of progressive passes"
       ) +
-      
       theme_minimal()
     
-    ggplotly(
-      p,
-      tooltip = "text"
-    )
+    ggplotly(p, tooltip = "text")
     
   })
   
