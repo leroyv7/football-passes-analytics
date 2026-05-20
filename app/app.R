@@ -2,7 +2,7 @@ library(shiny)
 library(tidyverse)
 library(scales)
 library(plotly)
-
+library(ggsoccer)
 
 theme_set(
   theme_minimal(base_size = 13)
@@ -327,8 +327,11 @@ server <- function(input, output) {
       )
     ) +
       
-      annotate("rect", xmin = 0, xmax = 120, ymin = 0, ymax = 80,
-               fill = "#1B1B1B", colour = "grey70") +
+      annotate_pitch(
+        dimensions = pitch_statsbomb,
+        colour = "grey70",
+        fill = "#1B1B1B"
+      ) +
       
       geom_bin2d(
         bins = 25,
@@ -407,8 +410,11 @@ server <- function(input, output) {
       )
     ) +
       
-      annotate("rect", xmin = 0, xmax = 120, ymin = 0, ymax = 80,
-               fill = "#1B1B1B", colour = "grey70") +
+      annotate_pitch(
+        dimensions = pitch_statsbomb,
+        colour = "grey70",
+        fill = "#1B1B1B"
+      ) +
       
       geom_bin2d(
         bins = 25,
@@ -487,8 +493,11 @@ server <- function(input, output) {
       )
     ) +
       
-      annotate("rect", xmin = 0, xmax = 120, ymin = 0, ymax = 80,
-               fill = "#1B1B1B", colour = "grey70") +
+      annotate_pitch(
+        dimensions = pitch_statsbomb,
+        colour = "grey70",
+        fill = "#1B1B1B"
+      ) +
       
       geom_bin2d(
         bins = 25,
