@@ -121,12 +121,12 @@ ui <- fluidPage(
       fluidRow(
         column(
           width = 6,
-          plotOutput("pass_plot", height = "320px")
+          plotlyOutput("pass_plot", height = "320px")
         ),
         
         column(
           width = 6,
-          plotOutput("progressive_plot", height = "320px")
+          plotlyOutput("progressive_plot", height = "320px")
         )
       ),
       
