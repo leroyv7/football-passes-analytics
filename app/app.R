@@ -2,7 +2,7 @@ library(shiny)
 library(tidyverse)
 library(scales)
 library(ggsoccer)
-library(plotly)
+
 
 theme_set(
   theme_minimal(base_size = 13)
@@ -121,12 +121,12 @@ ui <- fluidPage(
       fluidRow(
         column(
           width = 6,
-          plotlyOutput("pass_plot", height = "320px")
+          plotOutput("pass_plot", height = "320px")
         ),
         
         column(
           width = 6,
-          plotlyOutput("progressive_plot", height = "320px")
+          plotOutput("progressive_plot", height = "320px")
         )
       ),
       
@@ -210,7 +210,7 @@ server <- function(input, output) {
   # Pass distribution
   # -------------------------
   
-  output$pass_plot <- renderPlotly({
+  output$pass_plot <- renderPlot({
     
     filtered_data <- lane_data %>%
       filter(team == input$team)
@@ -251,7 +251,7 @@ server <- function(input, output) {
       ) +
       theme_minimal()
     
-    ggplotly(p, tooltip = "text")
+    print(p)
     
   })
   
@@ -259,7 +259,7 @@ server <- function(input, output) {
   # Progressive pass distribution
   # -------------------------
   
-  output$progressive_plot <- renderPlotly({
+  output$progressive_plot <- renderPlot({
     
     filtered_data <- progressive_data %>%
       filter(team == input$team)
@@ -300,7 +300,7 @@ server <- function(input, output) {
       ) +
       theme_minimal()
     
-    ggplotly(p, tooltip = "text")
+    print(p)
     
   })
   
