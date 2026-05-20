@@ -1,7 +1,7 @@
 library(shiny)
 library(tidyverse)
 library(scales)
-library(ggsoccer)
+
 
 
 theme_set(
@@ -321,11 +321,8 @@ server <- function(input, output) {
       )
     ) +
       
-      annotate_pitch(
-        dimensions = pitch_statsbomb,
-        colour = "grey70",
-        fill = "#1B1B1B"
-      ) +
+      annotate("rect", xmin = 0, xmax = 120, ymin = 0, ymax = 80,
+               fill = "#1B1B1B", colour = "grey70") +
       
       geom_bin2d(
         bins = 25,
@@ -351,7 +348,7 @@ server <- function(input, output) {
         y = NULL
       ) +
       
-      theme_pitch() +
+      theme_void() +
       
       theme(
         plot.title = element_text(
@@ -404,11 +401,8 @@ server <- function(input, output) {
       )
     ) +
       
-      annotate_pitch(
-        dimensions = pitch_statsbomb,
-        colour = "grey70",
-        fill = "#1B1B1B"
-      ) +
+      annotate("rect", xmin = 0, xmax = 120, ymin = 0, ymax = 80,
+               fill = "#1B1B1B", colour = "grey70") +
       
       geom_bin2d(
         bins = 25,
@@ -434,7 +428,7 @@ server <- function(input, output) {
         y = NULL
       ) +
       
-      theme_pitch() +
+      theme_void() +
       
       theme(
         plot.title = element_text(
@@ -487,11 +481,8 @@ server <- function(input, output) {
       )
     ) +
       
-      annotate_pitch(
-        dimensions = pitch_statsbomb,
-        colour = "grey70",
-        fill = "#1B1B1B"
-      ) +
+      annotate("rect", xmin = 0, xmax = 120, ymin = 0, ymax = 80,
+               fill = "#1B1B1B", colour = "grey70") +
       
       geom_bin2d(
         bins = 25,
@@ -517,7 +508,7 @@ server <- function(input, output) {
         y = NULL
       ) +
       
-      theme_pitch() +
+      theme_void() +
       
       theme(
         plot.title = element_text(
