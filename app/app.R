@@ -1,7 +1,7 @@
 library(shiny)
 library(tidyverse)
 library(scales)
-
+library(plotly)
 
 
 theme_set(
@@ -210,7 +210,7 @@ server <- function(input, output) {
   # Pass distribution
   # -------------------------
   
-  output$pass_plot <- renderPlot({
+  output$pass_plot <- renderPlotly({
     
     filtered_data <- lane_data %>%
       filter(team == input$team)
@@ -251,7 +251,10 @@ server <- function(input, output) {
       ) +
       theme_minimal()
     
-    print(p)
+    ggplotly(
+      p,
+      tooltip = "text"
+    )
     
   })
   
@@ -259,7 +262,7 @@ server <- function(input, output) {
   # Progressive pass distribution
   # -------------------------
   
-  output$progressive_plot <- renderPlot({
+  output$progressive_plot <- renderPlotly({
     
     filtered_data <- progressive_data %>%
       filter(team == input$team)
@@ -300,7 +303,10 @@ server <- function(input, output) {
       ) +
       theme_minimal()
     
-    print(p)
+    ggplotly(
+      p,
+      tooltip = "text"
+    )
     
   })
   
